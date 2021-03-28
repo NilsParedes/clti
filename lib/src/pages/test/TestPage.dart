@@ -1,4 +1,8 @@
+import 'package:clti/src/extras/Repository.dart';
+import 'package:clti/src/models/Question.dart';
+import 'package:clti/src/models/Test.dart';
 import 'package:clti/src/pages/test/QuestionPage.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -13,13 +17,24 @@ class _TestPageState extends State<TestPage> {
 
   @override
   Widget build(BuildContext context) {
+    List<Test> tests = Repository.get();
+
+    List<Question> questions = [
+      ...tests.first.getQuestions(),
+      ...tests.last.getQuestions(),
+    ];
+
+    var media = MediaQuery.of(context).size;
+    var height = media.height * 0.65;
+    var size = height / 35;
+
     return Scaffold(
       appBar: AppBar(
         title: Text('CLTI'),
       ),
       floatingActionButton: FloatingActionButton.extended(
         elevation: 4.0,
-        label: const Text('CALCULAR'),
+        label: new Text(tr('configs.calculate')),
         onPressed: () {},
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -41,39 +56,41 @@ class _TestPageState extends State<TestPage> {
       ),
       backgroundColor: Colors.grey.shade300,
       body: Center(
-        child: Directionality(
-          textDirection: TextDirection.rtl,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Container(
-                child: SmoothPageIndicator(
-                  controller: controller,
-                  count: 5,
-                  effect: ExpandingDotsEffect(
-                    expansionFactor: 4,
-                  ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Container(
+              child: SmoothPageIndicator(
+                controller: controller,
+                count: questions.length,
+                effect: ExpandingDotsEffect(
+                  expansionFactor: 4,
                 ),
               ),
-              SizedBox(height: 16),
-              SizedBox(
-                height: 600,
-                child: PageView(
-                  controller: controller,
-                  children: List.generate(
-                      5,
-                      (_) => Card(
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(16)),
-                            margin: EdgeInsets.symmetric(
-                                horizontal: 5, vertical: 4),
-                            child: Container(height: 280, child: QuestionPage(),),
-                          )),
-                ),
+            ),
+            SizedBox(height: size),
+            SizedBox(
+              height: height,
+              child: PageView(
+                controller: controller,
+                children: List.generate(
+                    questions.length,
+                    (index) => Card(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(16)),
+                          margin:
+                              EdgeInsets.symmetric(horizontal: 5, vertical: 4),
+                          child: Container(
+                            height: height / 2.14,
+                            child: QuestionPage(
+                              question: questions[index],
+                            ),
+                          ),
+                        )),
               ),
-              SizedBox(height: 16),
-            ],
-          ),
+            ),
+            SizedBox(height: size),
+          ],
         ),
       ),
     );
