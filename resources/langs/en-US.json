@@ -1,0 +1,72 @@
+{
+    "configs": {
+        "calculate": "CALCULAR"
+    },
+    "data": {
+        "test": {
+            "wifi": {
+                "name": "WIFI",
+                "questions": {
+                    "w": {
+                        "name": "W",
+                        "answers": {
+                            "0": "No ulcer and gangrene",
+                            "1": "Small, shallow ulcer, minor devitalized tissue.",
+                            "2": "Deep ulcer with limited osteotendinous exposure and gangrene.",
+                            "3": "Extensive deep ulcer with full exposure, extensive gangrene."
+                        }
+                    },
+                    "i": {
+                        "name": "I",
+                        "answers": {
+                            "0": "ABI˃ 0.8/ASP ˃100 mm Hg /TP, TcPO2 ˃60",
+                            "1": "ABI 0.6-0.8/ASP 70-100 mm Hg/ TP, TcPO2 40-60",
+                            "2": "ABI 0.4-0.6/ASP 50-70 mm Hg/ TP, TcPO2 30-40",
+                            "3": "ABI <0.4/ASP ˂50 mm Hg/ TP, TcPO2 ˂30"
+                        }
+                    },
+                    "fi": {
+                        "name": "FI",
+                        "answers": {
+                            "0": "No symptoms or signs of infection.",
+                            "1": "Superficial localized infection, 2 cm erythema, No SIRS.",
+                            "2": "Deep localized infection, 2 cm erythema, No SIRS.",
+                            "3": "Extensive infection, SIRS."
+                        }
+                    }
+                }
+            },
+            "glass": {
+                "name": "GLASS",
+                "questions": {
+                    "fp": {
+                        "name": "Femoropopliteal (FP)",
+                        "answers": {
+                            "0": "Mild and non-significant disease (<50%).",
+                            "1": "Significant lesion in SFA ˂ 10 cm or CTO ˂ 5 cm / Poplitea with non-significant lesions.",
+                            "2": "Significant lesion in SFA 10-20 cm or CTO ˂ 10 cm / Poplitea with significant lesions ˂ 2 cm.",
+                            "3": "Significant lesion in SFA ˃ 20 cm or CTO 10-20 cm / Popliteal with significant lesions 2-5 cm",
+                            "4": "Significant lesion in SFA 20 cm or CTO ˃20 cm / Poplitea with significant lesions ˃ 5 cm that compromise trifurcation."
+                        }
+                    },
+                    "ip": {
+                        "name": "Infrapopliteal (IP)",
+                        "answers": {
+                            "0": "Mild and non-significant disease (<50%).",
+                            "1": "Tibial artery injury ˂ 3 cm.",
+                            "2": "Diffuse disease involving 1/3 of the vessel, CTO ˂ 3 cm.",
+                            "3": "Diffuse disease involving 2/3 of the vessel, CTO 1/3 of the vessel.",
+                            "4": "Diffuse disease involving 2/3 of the vessel, CTO 1/3 of the vessel, involvement of the tibioperoneal trunk."
+                        }
+                    }
+                }
+            }
+        },
+        "results": {
+            "0": "Not applicable",
+            "1": "Suggested: Endovascular revascularization",
+            "2": "Suggested: Open revascularization (Bypass)",
+            "3": "Indeterminate handling, subject to discussion."
+        }
+    }
+}

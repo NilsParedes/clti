@@ -1,0 +1,72 @@
+{
+    "configs": {
+        "calculate": "CALCULAR"
+    },
+    "data": {
+        "test": {
+            "wifi": {
+                "name": "WIFI",
+                "questions": {
+                    "w": {
+                        "name": "W",
+                        "answers": {
+                            "0": "No úlcera y gangrena",
+                            "1": "Úlcera pequeña y poco profunda, tejido desvitalizado menor.",
+                            "2": "Úlcera profunda con exposición osteotendinosa y gangrena limitada",
+                            "3": "Úlcera extensa y profunda con exposición completa, gangrena extensa."
+                        }
+                    },
+                    "i": {
+                        "name": "I",
+                        "answers": {
+                            "0": "ITB˃ 0.8/PST ˃100 mm Hg /PTO2 ˃60",
+                            "1": "ITB 0.6-0.8/PST 70-100 mm Hg/PTO2 40-60",
+                            "2": "ITB 0.4-0.6/PST 50-70 mm Hg/PTO2 30-40",
+                            "3": "ITB <0.4/PST ˂50 mm Hg/PTO2 ˂30"
+                        }
+                    },
+                    "fi": {
+                        "name": "FI",
+                        "answers": {
+                            "0": "No infección.",
+                            "1": "Infección localizada superficial, eritema ˂2 cm, No SIRS",
+                            "2": "Infección localizada profunda, eritema ˃2 cm, No SIRS",
+                            "3": "Infección extensa, SIRS"
+                        }
+                    }
+                }
+            },
+            "glass": {
+                "name": "GLASS",
+                "questions": {
+                    "fp": {
+                        "name": "Fémoro-popliteo (FP)",
+                        "answers": {
+                            "0": "Enfermedad leve y no significativa (<50%)",
+                            "1": "Lesión significativa en AFS ˂ 10 cm u OTC ˂ 5 cm/ Poplitea con lesiones no significativas.",
+                            "2": "Lesión significativa en AFS 10-20 cm u OTC ˂ 10 cm/ Poplitea con lesiones significativas ˂ 2 cm",
+                            "3": "Lesión significativa en AFS ˃ 20 cm u OTC 10-20 cm/ Poplítea con lesiones significativas 2-5 cm",
+                            "4": "Lesión significativa en AFS ˃ 20 cm u OTC ˃20 cm/ Poplitea con lesiones significativas ˃ 5 cm que comprometen trifurcación."
+                        }
+                    },
+                    "ip": {
+                        "name": "Infrapopliteo (IP)",
+                        "answers": {
+                            "0": "Enfermedad leve y no significativa (<50%)",
+                            "1": "Lesión en arteria tibial ˂ 3 cm",
+                            "2": "Enfermedad difusa que compromete 1/3 del vaso, OTC ˂ 3 cm",
+                            "3": "Enfermedad difusa que compromete 2/3 del vaso, OTC 1/3 del vaso",
+                            "4": "Enfermedad difusa que compromete 2/3 del vaso, OTC 1/3 del vaso, afectación del TTP"
+                        }
+                    }
+                }
+            }
+        },
+        "results": {
+            "0": "No revascularización",
+            "1": "Revascularización endovascular",
+            "2": "Revascularización abierta (Bypass)",
+            "3": "Indeterminado, sujeto a discusión"
+        }
+    }
+}
