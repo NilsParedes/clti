@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       title: 'CLTI',
       theme: ThemeData(
         primarySwatch: Colors.indigo,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+        visualDensity: VisualDensity.adaptivePlatformDensity
       ),
       home: TestPage(),
       localizationsDelegates: context.localizationDelegates,

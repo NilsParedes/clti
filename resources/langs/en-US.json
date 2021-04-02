@@ -1,6 +1,6 @@
 {
     "configs": {
-        "calculate": "CALCULAR",
+        "calculate": "CALCULATE",
         "stage": "stage",
         "about": "ABOUT"
     },
@@ -107,8 +107,8 @@
         },
         "results": {
             "0": "Not applicable",
-            "1": "Suggested: Endovascular revascularization",
-            "2": "Suggested: Open revascularization (Bypass)",
+            "1": "Endovascular revascularization",
+            "2": "Open revascularization (Bypass)",
             "3": "Indeterminate handling, subject to discussion."
         },
         "about": {
