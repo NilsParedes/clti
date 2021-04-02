@@ -107,10 +107,10 @@
             }
         },
         "results": {
-            "0": "Not applicable",
-            "1": "Endovascular revascularization",
-            "2": "Open revascularization (Bypass)",
-            "3": "Indeterminate handling, subject to discussion."
+            "1": "Not applicable",
+            "2": "Endovascular revascularization",
+            "3": "Open revascularization (Bypass)",
+            "4": "Indeterminate handling, subject to discussion."
         },
         "about": {
             "0": "Wildor Samir Cubas Llalle MD.",

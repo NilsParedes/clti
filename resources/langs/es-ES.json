@@ -107,10 +107,10 @@
             }
         },
         "results": {
-            "0": "No revascularización",
-            "1": "Revascularización endovascular",
-            "2": "Revascularización abierta (Bypass)",
-            "3": "Indeterminado, sujeto a discusión"
+            "1": "No revascularización",
+            "2": "Revascularización endovascular",
+            "3": "Revascularización abierta (Bypass)",
+            "4": "Indeterminado, sujeto a discusión"
         },
         "about": {
             "0": "Dr. Wildor Samir Cubas Llalle",

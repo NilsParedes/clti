@@ -52,51 +52,54 @@ class _TestPageState extends State<TestPage> {
               showDialog(
                   context: context,
                   builder: (context) => AlertDialog(
-                        content: Column(
-                          children: <Widget>[
-                            Text.rich(
-                              TextSpan(
-                                  text: 'WIFI' +
-                                      ' ' +
-                                      tr('configs.stage') +
-                                      ' ' +
-                                      wifiResult.toString(),
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                  )),
-                              textAlign: TextAlign.center,
-                            ),
-                            Text(
-                              tr("data.test.wifi.results.$wifiResult"),
-                              textAlign: TextAlign.center,
-                            ),
-                            SizedBox(height: 30),
-                            Text.rich(
-                              TextSpan(
-                                  text: 'GLASS' +
-                                      ' ' +
-                                      tr('configs.stage') +
-                                      ' ' +
-                                      glassResult.toString(),
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                  )),
-                              textAlign: TextAlign.center,
-                            ),
-                            Text(
-                              tr("data.test.glass.results.$glassResult"),
-                              textAlign: TextAlign.center,
-                            ),
-                            SizedBox(height: 60),
-                            Text.rich(
-                              TextSpan(
-                                  text: tr("data.results.$result"),
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                  )),
-                              textAlign: TextAlign.center,
-                            ),
-                          ],
+                        content: Container(
+                          width: double.maxFinite,
+                          child: ListView(
+                            children: [
+                              Text.rich(
+                                TextSpan(
+                                    text: 'WIFI' +
+                                        ' ' +
+                                        tr('configs.stage') +
+                                        ' ' +
+                                        wifiResult.toString(),
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                    )),
+                                textAlign: TextAlign.center,
+                              ),
+                              Text(
+                                tr("data.test.wifi.results.$wifiResult"),
+                                textAlign: TextAlign.center,
+                              ),
+                              SizedBox(height: 30),
+                              Text.rich(
+                                TextSpan(
+                                    text: 'GLASS' +
+                                        ' ' +
+                                        tr('configs.stage') +
+                                        ' ' +
+                                        glassResult.toString(),
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                    )),
+                                textAlign: TextAlign.center,
+                              ),
+                              Text(
+                                tr("data.test.glass.results.$glassResult"),
+                                textAlign: TextAlign.center,
+                              ),
+                              SizedBox(height: 60),
+                              Text.rich(
+                                TextSpan(
+                                    text: tr("data.results.$result"),
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                    )),
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          ),
                         ),
                         actions: <Widget>[
                           Container(
@@ -158,9 +161,9 @@ class _TestPageState extends State<TestPage> {
                                 ))
                           ],
                           content: Container(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 10.0, vertical: 0.0),
-                            child: Column(
+                            width: double.maxFinite,
+                            child: ListView(
+                              shrinkWrap: true,
                               children: <Widget>[
                                 for (var about in [0, 1, 2, 3, 4, 5, 6])
                                   Column(

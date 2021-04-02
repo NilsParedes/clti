@@ -12,6 +12,7 @@ void main() async {
         Locale('es', 'ES'),
         Locale('en', 'US'),
       ],
+      fallbackLocale: Locale('en', 'US'),
       path: 'resources/langs'));
 }
 
@@ -20,13 +21,22 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return FutureBuilder(
       // Replace the 3 second delay with your initialization code:
-      future: Future.delayed(Duration(seconds: 3)),
+      future: Future.delayed(Duration(milliseconds: 1500)),
       builder: (context, AsyncSnapshot snapshot) {
         // Show splash screen while waiting for app resources to load:
         if (snapshot.connectionState == ConnectionState.waiting) {
           return MaterialApp(
-            home: Scaffold(
-                body: Center(child: Image.asset("assets/splash/logo.png"))),
+            theme: ThemeData(
+                primarySwatch: Colors.indigo,
+                backgroundColor: Colors.indigo,
+                visualDensity: VisualDensity.adaptivePlatformDensity),
+            home: Container(
+              child: Image.asset("assets/splash/logo.png"),
+              color: Colors.indigo,
+            ),
+            localizationsDelegates: context.localizationDelegates,
+            supportedLocales: context.supportedLocales,
+            locale: context.locale,
           );
         } else {
           return MaterialApp(
