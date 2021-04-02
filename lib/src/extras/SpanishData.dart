@@ -1,8 +1,0 @@
-class SpanishData {
-
-
-  static get(){
-    
-  }
-
-}

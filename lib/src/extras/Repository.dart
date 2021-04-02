@@ -1,4 +1,5 @@
 import 'package:clti/src/models/Answer.dart';
+import 'package:clti/src/models/Legend.dart';
 import 'package:clti/src/models/Question.dart';
 import 'package:clti/src/models/Test.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -46,17 +47,44 @@ class Repository {
       new Answer(4, tr('data.test.glass.questions.ip.answers.4'), '8'),
     ];
 
+    // Legends
+
+    List<Legend> iLegends = [
+      new Legend(tr('data.test.wifi.questions.i.legends.0.name'),
+          tr('data.test.wifi.questions.i.legends.0.content')),
+      new Legend(tr('data.test.wifi.questions.i.legends.1.name'),
+          tr('data.test.wifi.questions.i.legends.1.content')),
+      new Legend(tr('data.test.wifi.questions.i.legends.2.name'),
+          tr('data.test.wifi.questions.i.legends.2.content')),
+    ];
+
+    List<Legend> fiLegends = [
+      new Legend(tr('data.test.wifi.questions.fi.legends.0.name'),
+          tr('data.test.wifi.questions.fi.legends.0.content')),
+    ];
+
+    List<Legend> fpLegends = [
+      new Legend(tr('data.test.glass.questions.fp.legends.0.name'),
+          tr('data.test.glass.questions.fp.legends.0.content')),
+      new Legend(tr('data.test.glass.questions.fp.legends.1.name'),
+          tr('data.test.glass.questions.fp.legends.1.content')),
+    ];
+
     // Questions
 
     List<Question> wifiQuestions = [
-      new Question('w', tr('data.test.wifi.questions.w.name'), wAnswers),
-      new Question('i', tr('data.test.wifi.questions.i.name'), iAnswers),
-      new Question('fi', tr('data.test.wifi.questions.fi.name'), fiAnswers),
+      new Question('w', tr('data.test.wifi.questions.w.name'), wAnswers, []),
+      new Question(
+          'i', tr('data.test.wifi.questions.i.name'), iAnswers, iLegends),
+      new Question(
+          'fi', tr('data.test.wifi.questions.fi.name'), fiAnswers, fiLegends),
     ];
 
     List<Question> glassQuestions = [
-      new Question('fp', tr('data.test.glass.questions.fp.name'), fpAnswers),
-      new Question('ip', tr('data.test.glass.questions.ip.name'), ipAnswers),
+      new Question(
+          'fp', tr('data.test.glass.questions.fp.name'), fpAnswers, fpLegends),
+      new Question(
+          'ip', tr('data.test.glass.questions.ip.name'), ipAnswers, []),
     ];
 
     // Tests

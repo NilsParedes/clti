@@ -23,6 +23,20 @@
                             "1": "ABI 0.6-0.8/ASP 70-100 mm Hg/ TP, TcPO2 40-60",
                             "2": "ABI 0.4-0.6/ASP 50-70 mm Hg/ TP, TcPO2 30-40",
                             "3": "ABI <0.4/ASP ˂50 mm Hg/ TP, TcPO2 ˂30"
+                        },
+                        "legends": {
+                            "0": {
+                                "name": "ABI",
+                                "content": "Ankle-brachial index"
+                            },
+                            "1": {
+                                "name": "ASP",
+                                "content": "Ankle systolic pressure"
+                            },
+                            "2": {
+                                "name": "TP",
+                                "content": "Toe pressure"
+                            }
                         }
                     },
                     "fi": {
@@ -32,6 +46,12 @@
                             "1": "Superficial localized infection, 2 cm erythema, No SIRS.",
                             "2": "Deep localized infection, 2 cm erythema, No SIRS.",
                             "3": "Extensive infection, SIRS."
+                        },
+                        "legends": {
+                            "0": {
+                                "name": "SIRS",
+                                "content": "Systemic inflammatory response syndrome."
+                            }
                         }
                     }
                 }
@@ -47,6 +67,16 @@
                             "2": "Significant lesion in SFA 10-20 cm or CTO ˂ 10 cm / Poplitea with significant lesions ˂ 2 cm.",
                             "3": "Significant lesion in SFA ˃ 20 cm or CTO 10-20 cm / Popliteal with significant lesions 2-5 cm",
                             "4": "Significant lesion in SFA 20 cm or CTO ˃20 cm / Poplitea with significant lesions ˃ 5 cm that compromise trifurcation."
+                        },
+                        "legends": {
+                            "0": {
+                                "name": "SFA",
+                                "content": "Superficial femoral artery"
+                            },
+                            "1": {
+                                "name": "CTO",
+                                "content": "Chronic total occlusion"
+                            }
                         }
                     },
                     "ip": {

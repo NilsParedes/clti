@@ -6,6 +6,12 @@
         "test": {
             "wifi": {
                 "name": "WIFI",
+                "results": {
+                    "1": "Muy bajo riesgo de amputación.",
+                    "2": "Bajo riesgo de amputación",
+                    "3": "Moderado riesgo de amputación",
+                    "4": "Alto riesgo de amputación"
+                },
                 "questions": {
                     "w": {
                         "name": "W",
@@ -23,6 +29,20 @@
                             "1": "ITB 0.6-0.8/PST 70-100 mm Hg/PTO2 40-60",
                             "2": "ITB 0.4-0.6/PST 50-70 mm Hg/PTO2 30-40",
                             "3": "ITB <0.4/PST ˂50 mm Hg/PTO2 ˂30"
+                        },
+                        "legends": {
+                            "0": {
+                                "name": "ITB",
+                                "content": "Índice tobillo-brazo"
+                            },
+                            "1": {
+                                "name": "PST",
+                                "content": "Presión sistólica del tobillo"
+                            },
+                            "2": {
+                                "name": "PTO",
+                                "content": "Presión transcutánea de oxígeno"
+                            }
                         }
                     },
                     "fi": {
@@ -32,12 +52,23 @@
                             "1": "Infección localizada superficial, eritema ˂2 cm, No SIRS",
                             "2": "Infección localizada profunda, eritema ˃2 cm, No SIRS",
                             "3": "Infección extensa, SIRS"
+                        },
+                        "legends": {
+                            "0": {
+                                "name": "SIRS",
+                                "content": "Síndrome de respuesta inflamatoria sistémica"
+                            }
                         }
                     }
                 }
             },
             "glass": {
                 "name": "GLASS",
+                "results": {
+                    "1": "Intervención vascular con falla técnica estimada <10%.",
+                    "2": "Intervención vascular con falla técnica estimada <20%.",
+                    "3": " Intervención vascular con falla técnica estimada >20%."
+                },
                 "questions": {
                     "fp": {
                         "name": "Fémoro-popliteo (FP)",
@@ -47,6 +78,16 @@
                             "2": "Lesión significativa en AFS 10-20 cm u OTC ˂ 10 cm/ Poplitea con lesiones significativas ˂ 2 cm",
                             "3": "Lesión significativa en AFS ˃ 20 cm u OTC 10-20 cm/ Poplítea con lesiones significativas 2-5 cm",
                             "4": "Lesión significativa en AFS ˃ 20 cm u OTC ˃20 cm/ Poplitea con lesiones significativas ˃ 5 cm que comprometen trifurcación."
+                        },
+                        "legends": {
+                            "0": {
+                                "name": "AFS",
+                                "content": "Arteria femoral superficial"
+                            },
+                            "1": {
+                                "name": "OTC",
+                                "content": "Obstrucción total crónica"
+                            }
                         }
                     },
                     "ip": {
