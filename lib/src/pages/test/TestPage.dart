@@ -196,15 +196,16 @@ class _TestPageState extends State<TestPage> {
                   ...radios(question),
                   SizedBox(height: 26),
                   ...question.getLegends().map((Legend legend) {
-                    return Center(
+                    return Align(
+                        alignment: Alignment.centerLeft,
                         child: Text.rich(TextSpan(
-                      children: <TextSpan>[
-                        TextSpan(
-                            text: legend.getTitle(),
-                            style: TextStyle(fontWeight: FontWeight.bold)),
-                        TextSpan(text: " : ${legend.getContent()}")
-                      ],
-                    )));
+                          children: <TextSpan>[
+                            TextSpan(
+                                text: legend.getTitle(),
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            TextSpan(text: " : ${legend.getContent()}")
+                          ],
+                        )));
                   }),
                 ],
               ));
@@ -221,7 +222,12 @@ class _TestPageState extends State<TestPage> {
         RadioListTile<int>(
           value: answer.getId(),
           groupValue: _selectedAnswer[question.getId()],
-          title: Text(answer.getContent()),
+          title: Text.rich(TextSpan(children: <TextSpan>[
+            TextSpan(
+                text: answer.getId().toString() + '. ',
+                style: TextStyle(fontWeight: FontWeight.bold)),
+            TextSpan(text: answer.getContent()),
+          ])),
           onChanged: (value) {
             setState(() {
               _selectedAnswer[question.getId()] = value;
