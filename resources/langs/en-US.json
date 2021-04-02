@@ -1,7 +1,8 @@
 {
     "configs": {
         "calculate": "CALCULAR",
-        "stage": "stage"
+        "stage": "stage",
+        "about": "ABOUT"
     },
     "data": {
         "test": {
@@ -109,6 +110,15 @@
             "1": "Suggested: Endovascular revascularization",
             "2": "Suggested: Open revascularization (Bypass)",
             "3": "Indeterminate handling, subject to discussion."
+        },
+        "about": {
+            "0": "Wildor Samir Cubas Llalle MD.",
+            "1": "Nils Edy Paredes Sánchez",
+            "2": "Vascular and Endovascular Surgery Service",
+            "3": "Department of Thorax and Cardiovascular Surgery",
+            "4": "Edgardo Rebagliati Martins National Hospital. Lima-Peru.",
+            "5": "PERUVIAN ASSOCIATION OF ANGIOLOGY, VASCULAR AND ENDOVASCULAR SURGERY",
+            "6": "Algorithm taken and adapted from Global Vascular Guidelines on the Management of Chronic Limb-Threatening Ischemia-2019"
         }
     }
 }

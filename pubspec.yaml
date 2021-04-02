@@ -21,7 +21,6 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
-  smooth_page_indicator: ^0.2.3
   easy_localization: ^3.0.0
   flutter:
     sdk: flutter

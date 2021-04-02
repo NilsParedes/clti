@@ -30,10 +30,6 @@ class _TestPageState extends State<TestPage> {
       ...tests.last.getQuestions(),
     ];
 
-    //var media = MediaQuery.of(context).size;
-    //var height = media.height * 0.65;
-    //var size = height / 35;
-
     return Scaffold(
       appBar: AppBar(
         title: Text('CLTI'),
@@ -107,8 +103,13 @@ class _TestPageState extends State<TestPage> {
                             child: Icon(Icons.sync),
                             onPressed: () {
                               setState(() {
-                                /*initializeOnFalse(testsResults);
-                                      testsResults = getData(language);*/
+                                _selectedAnswer = [
+                                  null,
+                                  null,
+                                  null,
+                                  null,
+                                  null,
+                                ];
                               });
                               Navigator.pop(context);
                             },
@@ -126,40 +127,74 @@ class _TestPageState extends State<TestPage> {
           children: <Widget>[
             IconButton(
               icon: Icon(Icons.info),
-              onPressed: () {},
+              onPressed: () {
+                showDialog(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                          title: Text(tr('configs.about')),
+                          actions: <Widget>[
+                            Container(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 10.0, vertical: 0.0),
+                                child: RaisedButton(
+                                  color: Colors.indigo,
+                                  child: Icon(Icons.arrow_back),
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                ))
+                          ],
+                          content: Container(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 10.0, vertical: 0.0),
+                            child: Column(
+                              children: <Widget>[
+                                for (var about in [0, 1, 2, 3, 4, 5, 6])
+                                  Column(
+                                    children: <Widget>[
+                                      Text(tr("data.about.$about"),
+                                          textAlign: TextAlign.center),
+                                      SizedBox(height: 10),
+                                    ],
+                                  ),
+                              ],
+                            ),
+                          ),
+                          elevation: 24.0,
+                        ));
+              },
             ),
-            /*IconButton(
-              icon: Icon(Icons.settings),
-              onPressed: () {},
-            )*/
           ],
         ),
       ),
       backgroundColor: Colors.grey.shade300,
       body: Card(
-          child: ListView(children: <Column>[
+          child: ListView(children: <Container>[
         ...questions.map((Question question) {
-          return Column(
-            children: [
-              Text(
-                question.getName(),
-                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-              ),
-              ...radios(question),
-              SizedBox(height: 26),
-              ...question.getLegends().map((Legend legend) {
-                return Center(
-                    child: Text.rich(TextSpan(
-                  children: <TextSpan>[
-                    TextSpan(
-                        text: legend.getTitle(),
-                        style: TextStyle(fontWeight: FontWeight.bold)),
-                    TextSpan(text: " : ${legend.getContent()}")
-                  ],
-                )));
-              }),
-            ],
-          );
+          return Container(
+              margin: EdgeInsets.symmetric(horizontal: 1.0, vertical: 15.0),
+              child: Column(
+                children: [
+                  Text(
+                    question.getName(),
+                    style:
+                        TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                  ),
+                  ...radios(question),
+                  SizedBox(height: 26),
+                  ...question.getLegends().map((Legend legend) {
+                    return Center(
+                        child: Text.rich(TextSpan(
+                      children: <TextSpan>[
+                        TextSpan(
+                            text: legend.getTitle(),
+                            style: TextStyle(fontWeight: FontWeight.bold)),
+                        TextSpan(text: " : ${legend.getContent()}")
+                      ],
+                    )));
+                  }),
+                ],
+              ));
         })
       ])),
     );

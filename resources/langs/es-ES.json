@@ -1,7 +1,8 @@
 {
     "configs": {
         "calculate": "CALCULAR",
-        "stage": "estadío"
+        "stage": "estadío",
+        "about": "ACERCA DE"
     },
     "data": {
         "test": {
@@ -109,6 +110,15 @@
             "1": "Revascularización endovascular",
             "2": "Revascularización abierta (Bypass)",
             "3": "Indeterminado, sujeto a discusión"
+        },
+        "about": {
+            "0": "Dr. Wildor Samir Cubas Llalle",
+            "1": "Nils Edy Paredes Sánchez",
+            "2": "Servicio de Cirugía Vascular y Endovascular",
+            "3": "Departamento de Cirugía de Tórax y Cardiovascular",
+            "4": "Hospital Nacional Edgardo Rebagliati Martins. Lima-Perú",
+            "5": "ASOCIACIÓN PERUANA DE ANGIOLOGÍA, CIRUGÍA VASCULAR Y ENDOVASCULAR",
+            "6": "Algoritmo tomado y adaptado de la Global Vascular Guidelines on the Management of Chronic Limb-Threatening Ischemia-2019"
         }
     }
 }
