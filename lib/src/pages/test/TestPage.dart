@@ -6,6 +6,7 @@ import 'package:clti/src/models/Test.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class TestPage extends StatefulWidget {
   @override
@@ -35,90 +36,102 @@ class _TestPageState extends State<TestPage> {
         title: Text('CLTI'),
       ),
       floatingActionButton: FloatingActionButton.extended(
-        elevation: 4.0,
-        label: new Text(tr('configs.calculate')),
-        onPressed: () {
-          int wifiResult = getWifiResult(
-              _selectedAnswer[0], _selectedAnswer[1], _selectedAnswer[2]);
-          int glassResult =
-              getGlassResult(_selectedAnswer[3], _selectedAnswer[4]);
+          elevation: 4.0,
+          label: new Text(tr('configs.calculate')),
+          onPressed: () {
+            int wifiResult = getWifiResult(
+                _selectedAnswer[0], _selectedAnswer[1], _selectedAnswer[2]);
+            int glassResult =
+                getGlassResult(_selectedAnswer[3], _selectedAnswer[4]);
 
-          int result = getFinalResult(wifiResult, glassResult);
+            int result = getFinalResult(wifiResult, glassResult);
 
-          showDialog(
-              context: context,
-              builder: (context) => AlertDialog(
-                    content: Column(
-                      children: <Widget>[
-                        Text.rich(
-                          TextSpan(
-                              text: 'WIFI' +
-                                  ' ' +
-                                  tr('configs.stage') +
-                                  ' ' +
-                                  wifiResult.toString(),
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                              )),
-                          textAlign: TextAlign.center,
+            bool passed = _selectedAnswer.every((element) => element != null);
+
+            if (passed) {
+              showDialog(
+                  context: context,
+                  builder: (context) => AlertDialog(
+                        content: Column(
+                          children: <Widget>[
+                            Text.rich(
+                              TextSpan(
+                                  text: 'WIFI' +
+                                      ' ' +
+                                      tr('configs.stage') +
+                                      ' ' +
+                                      wifiResult.toString(),
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                  )),
+                              textAlign: TextAlign.center,
+                            ),
+                            Text(
+                              tr("data.test.wifi.results.$wifiResult"),
+                              textAlign: TextAlign.center,
+                            ),
+                            SizedBox(height: 30),
+                            Text.rich(
+                              TextSpan(
+                                  text: 'GLASS' +
+                                      ' ' +
+                                      tr('configs.stage') +
+                                      ' ' +
+                                      glassResult.toString(),
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                  )),
+                              textAlign: TextAlign.center,
+                            ),
+                            Text(
+                              tr("data.test.glass.results.$glassResult"),
+                              textAlign: TextAlign.center,
+                            ),
+                            SizedBox(height: 60),
+                            Text.rich(
+                              TextSpan(
+                                  text: tr("data.results.$result"),
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                  )),
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
                         ),
-                        Text(
-                          tr("data.test.wifi.results.$wifiResult"),
-                          textAlign: TextAlign.center,
-                        ),
-                        SizedBox(height: 30),
-                        Text.rich(
-                          TextSpan(
-                              text: 'GLASS' +
-                                  ' ' +
-                                  tr('configs.stage') +
-                                  ' ' +
-                                  glassResult.toString(),
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                              )),
-                          textAlign: TextAlign.center,
-                        ),
-                        Text(
-                          tr("data.test.glass.results.$glassResult"),
-                          textAlign: TextAlign.center,
-                        ),
-                        SizedBox(height: 60),
-                        Text.rich(
-                          TextSpan(
-                              text: tr("data.results.$result"),
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                              )),
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
-                    ),
-                    actions: <Widget>[
-                      Container(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 10.0, vertical: 0.0),
-                          child: RaisedButton(
-                            color: Colors.indigo,
-                            child: Icon(Icons.sync),
-                            onPressed: () {
-                              setState(() {
-                                _selectedAnswer = [
-                                  null,
-                                  null,
-                                  null,
-                                  null,
-                                  null,
-                                ];
-                              });
-                              Navigator.pop(context);
-                            },
-                          ))
-                    ],
-                    elevation: 24.0,
-                  ));
-        },
-      ),
+                        actions: <Widget>[
+                          Container(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 10.0, vertical: 0.0),
+                              child: RaisedButton(
+                                color: Colors.indigo,
+                                child: Icon(Icons.sync),
+                                onPressed: () {
+                                  setState(() {
+                                    _selectedAnswer = [
+                                      null,
+                                      null,
+                                      null,
+                                      null,
+                                      null,
+                                    ];
+                                  });
+                                  Navigator.pop(context);
+                                },
+                              ))
+                        ],
+                        elevation: 24.0,
+                      ));
+            } else {
+              Fluttertoast.showToast(
+                  msg: tr('configs.toast_error'),
+                  toastLength: Toast.LENGTH_SHORT,
+                  gravity: ToastGravity.CENTER_RIGHT,
+                  timeInSecForIosWeb: 1,
+                  backgroundColor: Colors.white,
+                  textColor: Colors.black,
+                  fontSize: 15.0);
+            }
+          }),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
         child: new Row(

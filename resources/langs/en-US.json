@@ -2,7 +2,8 @@
     "configs": {
         "calculate": "CALCULATE",
         "stage": "stage",
-        "about": "ABOUT"
+        "about": "ABOUT",
+        "toast_error": "You have to select one option per question"
     },
     "data": {
         "test": {

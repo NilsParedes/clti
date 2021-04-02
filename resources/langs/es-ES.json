@@ -2,7 +2,8 @@
     "configs": {
         "calculate": "CALCULAR",
         "stage": "estadío",
-        "about": "ACERCA DE"
+        "about": "ACERCA DE",
+        "toast_error": "Tienes que seleccionar una opcíon por pregunta"
     },
     "data": {
         "test": {
