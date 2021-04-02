@@ -7,13 +7,14 @@ class QuestionPage extends StatefulWidget {
   QuestionPage({Key key, @required this.question}) : super(key: key);
 
   final Question question;
-
+ 
   @override
   _QuestionPageState createState() => _QuestionPageState();
 }
 
 class _QuestionPageState extends State<QuestionPage> {
-  Answer _selectedAnswer = Answer(null, null, null);
+
+  Answer _selectedAnswer;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class _QuestionPageState extends State<QuestionPage> {
 
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 1.0, vertical: 15.0),
-      child: ListView(
+      child: Column(
         children: [
           Text(
             question.getName(),
@@ -51,15 +52,17 @@ class _QuestionPageState extends State<QuestionPage> {
     for (Answer answer in answers) {
       widgets.add(
         RadioListTile<Answer>(
+          //key: Key(question.getId() + answer.getId().toString()),
           value: answer,
           groupValue: _selectedAnswer,
           title: Text(answer.getContent()),
           onChanged: (answer) {
             setState(() {
               _selectedAnswer = answer;
+              print(_selectedAnswer.getId());
             });
           },
-          activeColor: Colors.green,
+          activeColor: Colors.red,
         ),
       );
 

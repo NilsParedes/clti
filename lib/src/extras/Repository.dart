@@ -73,18 +73,18 @@ class Repository {
     // Questions
 
     List<Question> wifiQuestions = [
-      new Question('w', tr('data.test.wifi.questions.w.name'), wAnswers, []),
+      new Question(0, tr('data.test.wifi.questions.w.name'), wAnswers, []),
       new Question(
-          'i', tr('data.test.wifi.questions.i.name'), iAnswers, iLegends),
+          1, tr('data.test.wifi.questions.i.name'), iAnswers, iLegends),
       new Question(
-          'fi', tr('data.test.wifi.questions.fi.name'), fiAnswers, fiLegends),
+          2, tr('data.test.wifi.questions.fi.name'), fiAnswers, fiLegends),
     ];
 
     List<Question> glassQuestions = [
       new Question(
-          'fp', tr('data.test.glass.questions.fp.name'), fpAnswers, fpLegends),
+          3, tr('data.test.glass.questions.fp.name'), fpAnswers, fpLegends),
       new Question(
-          'ip', tr('data.test.glass.questions.ip.name'), ipAnswers, []),
+          4, tr('data.test.glass.questions.ip.name'), ipAnswers, []),
     ];
 
     // Tests

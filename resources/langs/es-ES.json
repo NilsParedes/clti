@@ -1,6 +1,7 @@
 {
     "configs": {
-        "calculate": "CALCULAR"
+        "calculate": "CALCULAR",
+        "stage": "estadío"
     },
     "data": {
         "test": {

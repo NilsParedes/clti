@@ -4,12 +4,12 @@ import 'package:clti/src/models/Legend.dart';
 class Question {
   Question(this._id, this._name, this._answers, this._legends);
 
-  String _id;
+  int _id;
   String _name;
   List<Answer> _answers;
   List<Legend> _legends;
 
-  String getId() {
+  int getId() {
     return this._id;
   }
 

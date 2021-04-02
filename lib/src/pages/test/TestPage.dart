@@ -1,11 +1,11 @@
 import 'package:clti/src/extras/Repository.dart';
+import 'package:clti/src/models/Answer.dart';
+import 'package:clti/src/models/Legend.dart';
 import 'package:clti/src/models/Question.dart';
 import 'package:clti/src/models/Test.dart';
-import 'package:clti/src/pages/test/QuestionPage.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class TestPage extends StatefulWidget {
   @override
@@ -13,7 +13,13 @@ class TestPage extends StatefulWidget {
 }
 
 class _TestPageState extends State<TestPage> {
-  final controller = PageController(viewportFraction: 0.8);
+  List<int> _selectedAnswer = [
+    null,
+    null,
+    null,
+    null,
+    null,
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +30,9 @@ class _TestPageState extends State<TestPage> {
       ...tests.last.getQuestions(),
     ];
 
-    var media = MediaQuery.of(context).size;
-    var height = media.height * 0.65;
-    var size = height / 35;
+    //var media = MediaQuery.of(context).size;
+    //var height = media.height * 0.65;
+    //var size = height / 35;
 
     return Scaffold(
       appBar: AppBar(
@@ -35,7 +41,82 @@ class _TestPageState extends State<TestPage> {
       floatingActionButton: FloatingActionButton.extended(
         elevation: 4.0,
         label: new Text(tr('configs.calculate')),
-        onPressed: () {},
+        onPressed: () {
+          int wifiResult = getWifiResult(
+              _selectedAnswer[0], _selectedAnswer[1], _selectedAnswer[2]);
+          int glassResult =
+              getGlassResult(_selectedAnswer[3], _selectedAnswer[4]);
+
+          int result = getFinalResult(wifiResult, glassResult);
+
+          showDialog(
+              context: context,
+              builder: (context) => AlertDialog(
+                    content: Column(
+                      children: <Widget>[
+                        Text.rich(
+                          TextSpan(
+                              text: 'WIFI' +
+                                  ' ' +
+                                  tr('configs.stage') +
+                                  ' ' +
+                                  wifiResult.toString(),
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                              )),
+                          textAlign: TextAlign.center,
+                        ),
+                        Text(
+                          tr("data.test.wifi.results.$wifiResult"),
+                          textAlign: TextAlign.center,
+                        ),
+                        SizedBox(height: 30),
+                        Text.rich(
+                          TextSpan(
+                              text: 'GLASS' +
+                                  ' ' +
+                                  tr('configs.stage') +
+                                  ' ' +
+                                  glassResult.toString(),
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                              )),
+                          textAlign: TextAlign.center,
+                        ),
+                        Text(
+                          tr("data.test.glass.results.$glassResult"),
+                          textAlign: TextAlign.center,
+                        ),
+                        SizedBox(height: 60),
+                        Text.rich(
+                          TextSpan(
+                              text: tr("data.results.$result"),
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                              )),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
+                    actions: <Widget>[
+                      Container(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 10.0, vertical: 0.0),
+                          child: RaisedButton(
+                            color: Colors.indigo,
+                            child: Icon(Icons.sync),
+                            onPressed: () {
+                              setState(() {
+                                /*initializeOnFalse(testsResults);
+                                      testsResults = getData(language);*/
+                              });
+                              Navigator.pop(context);
+                            },
+                          ))
+                    ],
+                    elevation: 24.0,
+                  ));
+        },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
@@ -55,45 +136,58 @@ class _TestPageState extends State<TestPage> {
         ),
       ),
       backgroundColor: Colors.grey.shade300,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Container(
-              child: SmoothPageIndicator(
-                controller: controller,
-                count: questions.length,
-                effect: ExpandingDotsEffect(
-                  expansionFactor: 4,
-                ),
+      body: Card(
+          child: ListView(children: <Column>[
+        ...questions.map((Question question) {
+          return Column(
+            children: [
+              Text(
+                question.getName(),
+                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
               ),
-            ),
-            SizedBox(height: size),
-            SizedBox(
-              height: height,
-              child: PageView(
-                controller: controller,
-                children: List.generate(
-                    questions.length,
-                    (index) => Card(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(16)),
-                          margin:
-                              EdgeInsets.symmetric(horizontal: 5, vertical: 4),
-                          child: Container(
-                            height: height / 2.14,
-                            child: QuestionPage(
-                              question: questions[index],
-                            ),
-                          ),
-                        )),
-              ),
-            ),
-            SizedBox(height: size),
-          ],
-        ),
-      ),
+              ...radios(question),
+              SizedBox(height: 26),
+              ...question.getLegends().map((Legend legend) {
+                return Center(
+                    child: Text.rich(TextSpan(
+                  children: <TextSpan>[
+                    TextSpan(
+                        text: legend.getTitle(),
+                        style: TextStyle(fontWeight: FontWeight.bold)),
+                    TextSpan(text: " : ${legend.getContent()}")
+                  ],
+                )));
+              }),
+            ],
+          );
+        })
+      ])),
     );
+  }
+
+  List<Widget> radios(Question question) {
+    List<Answer> answers = question.getAnswers();
+    List<Widget> widgets = [];
+    for (Answer answer in answers) {
+      widgets.add(
+        RadioListTile<int>(
+          value: answer.getId(),
+          groupValue: _selectedAnswer[question.getId()],
+          title: Text(answer.getContent()),
+          onChanged: (value) {
+            setState(() {
+              _selectedAnswer[question.getId()] = value;
+            });
+          },
+          activeColor: Colors.red,
+        ),
+      );
+
+      if (answer.getPathImg() != null) {
+        widgets.add(Image.asset("assets/images/${answer.getPathImg()}.jpg"));
+      }
+    }
+    return widgets;
   }
 }
 
@@ -202,8 +296,7 @@ int getGlassResult(int fp, int ip) {
   return results[score];
 }
 
-
-int getFinalResult(int wifi, int glass){
+int getFinalResult(int wifi, int glass) {
   Map<String, int> results = {
     '11': 1,
     '12': 1,
@@ -219,8 +312,6 @@ int getFinalResult(int wifi, int glass){
     '43': 3,
   };
 
-
   String score = wifi.toString() + glass.toString();
   return results[score];
-
 }

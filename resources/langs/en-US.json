@@ -1,11 +1,18 @@
 {
     "configs": {
-        "calculate": "CALCULAR"
+        "calculate": "CALCULAR",
+        "stage": "stage"
     },
     "data": {
         "test": {
             "wifi": {
                 "name": "WIFI",
+                "results": {
+                    "1": "Very low risk of amputation.",
+                    "2": "Low risk of amputation.",
+                    "3": "Moderate risk of amputation.",
+                    "4": "High risk of amputation."
+                },
                 "questions": {
                     "w": {
                         "name": "W",
@@ -58,6 +65,11 @@
             },
             "glass": {
                 "name": "GLASS",
+                "results": {
+                    "1": "Vascular intervention with estimated technical failure <10%",
+                    "2": "Vascular intervention with estimated technical failure <20%",
+                    "3": "Vascular intervention with estimated technical failure >20%"
+                },
                 "questions": {
                     "fp": {
                         "name": "Femoropopliteal (FP)",
