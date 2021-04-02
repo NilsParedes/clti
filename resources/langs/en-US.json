@@ -45,6 +45,10 @@
                             "2": {
                                 "name": "TP",
                                 "content": "Toe pressure"
+                            },
+                            "3": {
+                                "name": "TcPO2",
+                                "content": "Transcutaneous oximetry"
                             }
                         }
                     },

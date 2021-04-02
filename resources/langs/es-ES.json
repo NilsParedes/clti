@@ -43,6 +43,10 @@
                                 "content": "Presión sistólica del tobillo"
                             },
                             "2": {
+                                "name": "TcPO2",
+                                "content": "Transcutaneous oximetry"
+                            },
+                            "3": {
                                 "name": "PTO",
                                 "content": "Presión transcutánea de oxígeno"
                             }

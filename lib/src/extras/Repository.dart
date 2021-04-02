@@ -56,6 +56,8 @@ class Repository {
           tr('data.test.wifi.questions.i.legends.1.content')),
       new Legend(tr('data.test.wifi.questions.i.legends.2.name'),
           tr('data.test.wifi.questions.i.legends.2.content')),
+      new Legend(tr('data.test.wifi.questions.i.legends.3.name'),
+          tr('data.test.wifi.questions.i.legends.3.content')),
     ];
 
     List<Legend> fiLegends = [
@@ -83,8 +85,7 @@ class Repository {
     List<Question> glassQuestions = [
       new Question(
           3, tr('data.test.glass.questions.fp.name'), fpAnswers, fpLegends),
-      new Question(
-          4, tr('data.test.glass.questions.ip.name'), ipAnswers, []),
+      new Question(4, tr('data.test.glass.questions.ip.name'), ipAnswers, []),
     ];
 
     // Tests
