@@ -29,10 +29,10 @@
                     "i": {
                         "name": "I",
                         "answers": {
-                            "0": "ABI˃ 0.8/ASP ˃100 mm Hg /TP, TcPO2 ˃60",
-                            "1": "ABI 0.6-0.8/ASP 70-100 mm Hg/ TP, TcPO2 40-60",
-                            "2": "ABI 0.4-0.6/ASP 50-70 mm Hg/ TP, TcPO2 30-40",
-                            "3": "ABI <0.4/ASP ˂50 mm Hg/ TP, TcPO2 ˂30"
+                            "0": "ABI˃ 0.8/ASP ˃100 mm Hg /TP, TcPO2 ˃60 mm Hg",
+                            "1": "ABI 0.6-0.8/ASP 70-100 mm Hg/ TP, TcPO2 40-60 mm Hg",
+                            "2": "ABI 0.4-0.6/ASP 50-70 mm Hg/ TP, TcPO2 30-40 mm Hg",
+                            "3": "ABI <0.4/ASP ˂50 mm Hg/ TP, TcPO2 ˂30 mm Hg"
                         },
                         "legends": {
                             "0": {
@@ -123,7 +123,7 @@
             "2": "Vascular and Endovascular Surgery Service",
             "3": "Department of Thorax and Cardiovascular Surgery",
             "4": "Edgardo Rebagliati Martins National Hospital. Lima-Peru.",
-            "5": "PERUVIAN ASSOCIATION OF ANGIOLOGY, VASCULAR AND ENDOVASCULAR SURGERY (PAAVES)",
+            "5": "Peruvian Association of Angiology Vascular and Endovascular Surgery (PAAVES)",
             "6": "Algorithm taken and adapted from Global Vascular Guidelines on the Management of Chronic Limb-Threatening Ischemia-2019"
         }
     }

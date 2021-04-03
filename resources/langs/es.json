@@ -29,10 +29,10 @@
                     "i": {
                         "name": "I",
                         "answers": {
-                            "0": "ITB˃ 0.8/PST ˃100 mm Hg /PTO2 ˃60",
-                            "1": "ITB 0.6-0.8/PST 70-100 mm Hg/PTO2 40-60",
-                            "2": "ITB 0.4-0.6/PST 50-70 mm Hg/PTO2 30-40",
-                            "3": "ITB <0.4/PST ˂50 mm Hg/PTO2 ˂30"
+                            "0": "ITB˃ 0.8/PST ˃100 mm Hg /PD, PTO2 ˃60 mm Hg",
+                            "1": "ITB 0.6-0.8/PST 70-100 mm Hg/PD, PTO2 40-60 mm Hg",
+                            "2": "ITB 0.4-0.6/PST 50-70 mm Hg/PD, PTO2 30-40 mm Hg",
+                            "3": "ITB <0.4/PST ˂50 mm Hg/PD, PTO2 ˂30 mm Hg"
                         },
                         "legends": {
                             "0": {
@@ -123,7 +123,7 @@
             "2": "Servicio de Cirugía Vascular y Endovascular",
             "3": "Departamento de Cirugía de Tórax y Cardiovascular",
             "4": "Hospital Nacional Edgardo Rebagliati Martins. Lima-Perú",
-            "5": "ASOCIACIÓN PERUANA DE ANGIOLOGÍA, CIRUGÍA VASCULAR Y ENDOVASCULAR (APACVE)",
+            "5": "Asociación Peruana de Angiología, Cirugía Vascular y Endovascular (APACVE)",
             "6": "Algoritmo tomado y adaptado de la Global Vascular Guidelines on the Management of Chronic Limb-Threatening Ischemia-2019"
         }
     }

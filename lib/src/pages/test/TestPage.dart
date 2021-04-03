@@ -52,7 +52,6 @@ class _TestPageState extends State<TestPage> {
               showDialog(
                   context: context,
                   builder: (context) => AlertDialog(
-                        title: Text(tr('configs.results')),
                         content: Container(
                           width: double.maxFinite,
                           child: ListView(
