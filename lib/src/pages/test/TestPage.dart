@@ -327,7 +327,7 @@ int getWifiResult(int w, int i, int fi) {
 
 int getGlassResult(int fp, int ip) {
   Map<String, int> results = {
-    '00': -1,
+    '00': 0,
     '01': 1,
     '02': 1,
     '03': 2,
@@ -373,6 +373,10 @@ int getFinalResult(int wifi, int glass) {
     '42': 4,
     '43': 3,
   };
+
+  if(glass == 0){
+    return 4;
+  }
 
   String score = wifi.toString() + glass.toString();
   return results[score];

@@ -73,6 +73,7 @@
             "glass": {
                 "name": "GLASS",
                 "results": {
+                    "0": "NA",
                     "1": "Vascular intervention with estimated technical failure <10%",
                     "2": "Vascular intervention with estimated technical failure <20%",
                     "3": "Vascular intervention with estimated technical failure >20%"

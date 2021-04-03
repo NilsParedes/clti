@@ -73,6 +73,7 @@
             "glass": {
                 "name": "GLASS",
                 "results": {
+                    "0": "NA",
                     "1": "Intervención vascular con falla técnica estimada <10%.",
                     "2": "Intervención vascular con falla técnica estimada <20%.",
                     "3": " Intervención vascular con falla técnica estimada >20%."
