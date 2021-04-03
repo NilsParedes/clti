@@ -1,10 +1,12 @@
 {
     "configs": {
         "calculate": "CALCULAR",
-        "stage": "estadío",
+        "stage": "Estadío",
         "about": "ACERCA DE",
         "toast_error": "Tienes que seleccionar una opcíon por pregunta",
-        "results": "RESULTADOS"
+        "results": "RESULTADOS",
+        "indeterminate": "INDETERMINADO"
+
     },
     "data": {
         "test": {
@@ -14,7 +16,8 @@
                     "1": "Muy bajo riesgo de amputación.",
                     "2": "Bajo riesgo de amputación",
                     "3": "Moderado riesgo de amputación",
-                    "4": "Alto riesgo de amputación"
+                    "4": "Alto riesgo de amputación",
+                    "null": "WIFI Indeterminado"
                 },
                 "questions": {
                     "w": {

@@ -39,16 +39,23 @@ class _TestPageState extends State<TestPage> {
           elevation: 4.0,
           label: new Text(tr('configs.calculate')),
           onPressed: () {
-            int wifiResult = getWifiResult(
-                _selectedAnswer[0], _selectedAnswer[1], _selectedAnswer[2]);
-            int glassResult =
-                getGlassResult(_selectedAnswer[3], _selectedAnswer[4]);
-
-            int result = getFinalResult(wifiResult, glassResult);
-
             bool passed = _selectedAnswer.every((element) => element != null);
 
             if (passed) {
+              int wifiResult = getWifiResult(
+                  _selectedAnswer[0], _selectedAnswer[1], _selectedAnswer[2]);
+              int glassResult =
+                  getGlassResult(_selectedAnswer[3], _selectedAnswer[4]);
+
+              int result = getFinalResult(wifiResult, glassResult);
+
+              String wifi =
+                  getRomanNumber(wifiResult) ?? tr('configs.indeterminate');
+              String glass =
+                  getRomanNumber(glassResult) ?? tr('configs.indeterminate');
+
+              String res = result != null ? tr("data.results.$result") : tr("data.results.4");
+
               showDialog(
                   context: context,
                   builder: (context) => AlertDialog(
@@ -65,7 +72,7 @@ class _TestPageState extends State<TestPage> {
                                             ' ' +
                                             tr('configs.stage') +
                                             ' ' +
-                                            wifiResult.toString(),
+                                            wifi,
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                         )),
@@ -82,7 +89,7 @@ class _TestPageState extends State<TestPage> {
                                             ' ' +
                                             tr('configs.stage') +
                                             ' ' +
-                                            glassResult.toString(),
+                                            glass,
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                         )),
@@ -95,7 +102,7 @@ class _TestPageState extends State<TestPage> {
                                   SizedBox(height: 30),
                                   Text.rich(
                                     TextSpan(
-                                        text: tr("data.results.$result"),
+                                        text: res,
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                         )),
@@ -374,10 +381,11 @@ int getFinalResult(int wifi, int glass) {
     '43': 3,
   };
 
-  if(glass == 0){
-    return 4;
-  }
-
   String score = wifi.toString() + glass.toString();
   return results[score];
+}
+
+String getRomanNumber(int stage) {
+  Map<int, String> stages = {1: 'I', 2: 'II', 3: 'III', 4: 'IV'};
+  return stages[stage];
 }
