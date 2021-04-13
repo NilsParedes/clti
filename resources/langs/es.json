@@ -6,7 +6,6 @@
         "toast_error": "Tienes que seleccionar una opcíon por pregunta",
         "results": "RESULTADOS",
         "indeterminate": "INDETERMINADO"
-
     },
     "data": {
         "test": {
@@ -99,6 +98,18 @@
                             "1": {
                                 "name": "OTC",
                                 "content": "Obstrucción total crónica"
+                            },
+                            "2": {
+                                "name": "CFA",
+                                "content": "Arteria femoral común"
+                            },
+                            "3": {
+                                "name": "DFA",
+                                "content": "Arteria femoral profunda"
+                            },
+                            "4": {
+                                "name": "POP",
+                                "content": "Arteria poplítea"
                             }
                         }
                     },
@@ -110,6 +121,12 @@
                             "2": "Enfermedad difusa que compromete 1/3 del vaso, OTC ˂ 3 cm",
                             "3": "Enfermedad difusa que compromete 2/3 del vaso, OTC 1/3 del vaso",
                             "4": "Enfermedad difusa que compromete 2/3 del vaso, OTC 1/3 del vaso, afectación del TTP"
+                        },
+                        "legends": {
+                            "0": {
+                                "name": "TTP",
+                                "content": "Tronco tibioperoneo"
+                            }
                         }
                     }
                 }

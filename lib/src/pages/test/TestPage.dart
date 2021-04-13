@@ -221,11 +221,16 @@ class _TestPageState extends State<TestPage> {
                                 alignment: Alignment.centerLeft,
                                 child: Text.rich(TextSpan(
                                   children: <TextSpan>[
-                                    TextSpan(
-                                        text: legend.getTitle(),
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold)),
-                                    TextSpan(text: " : ${legend.getContent()}")
+                                    legend.getTitle().isNotEmpty
+                                        ? TextSpan(
+                                            text: legend.getTitle(),
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold))
+                                        : TextSpan(),
+                                    legend.getTitle().isNotEmpty
+                                        ? TextSpan(
+                                            text: " : ${legend.getContent()}")
+                                        : TextSpan()
                                   ],
                                 )));
                           }),

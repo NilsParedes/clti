@@ -98,6 +98,18 @@
                             "1": {
                                 "name": "CTO",
                                 "content": "Chronic total occlusion"
+                            },
+                            "2": {
+                                "name": "CFA",
+                                "content": "Common femoral artery"
+                            },
+                            "3": {
+                                "name": "DFA",
+                                "content": "Deep femoral artery"
+                            },
+                            "4": {
+                                "name": "POP",
+                                "content": "Popliteal artery"
                             }
                         }
                     },
@@ -109,6 +121,12 @@
                             "2": "Diffuse disease involving 1/3 of the vessel, CTO ˂ 3 cm.",
                             "3": "Diffuse disease involving 2/3 of the vessel, CTO 1/3 of the vessel.",
                             "4": "Diffuse disease involving 2/3 of the vessel, CTO 1/3 of the vessel, involvement of the tibioperoneal trunk."
+                        },
+                        "legends": {
+                            "0": {
+                                "name": "",
+                                "content": ""
+                            }
                         }
                     }
                 }

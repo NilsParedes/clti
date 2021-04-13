@@ -70,6 +70,17 @@ class Repository {
           tr('data.test.glass.questions.fp.legends.0.content')),
       new Legend(tr('data.test.glass.questions.fp.legends.1.name'),
           tr('data.test.glass.questions.fp.legends.1.content')),
+      new Legend(tr('data.test.glass.questions.fp.legends.2.name'),
+          tr('data.test.glass.questions.fp.legends.2.content')),
+      new Legend(tr('data.test.glass.questions.fp.legends.3.name'),
+          tr('data.test.glass.questions.fp.legends.3.content')),
+      new Legend(tr('data.test.glass.questions.fp.legends.4.name'),
+          tr('data.test.glass.questions.fp.legends.4.content')),
+    ];
+
+    List<Legend> ipLegends = [
+      new Legend(tr('data.test.glass.questions.ip.legends.0.name'),
+          tr('data.test.glass.questions.ip.legends.0.content')),
     ];
 
     // Questions
@@ -85,7 +96,8 @@ class Repository {
     List<Question> glassQuestions = [
       new Question(
           3, tr('data.test.glass.questions.fp.name'), fpAnswers, fpLegends),
-      new Question(4, tr('data.test.glass.questions.ip.name'), ipAnswers, []),
+      new Question(
+          4, tr('data.test.glass.questions.ip.name'), ipAnswers, ipLegends),
     ];
 
     // Tests
