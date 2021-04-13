@@ -26,11 +26,6 @@ class _TestPageState extends State<TestPage> {
   Widget build(BuildContext context) {
     List<Test> tests = Repository.get();
 
-    List<Question> questions = [
-      ...tests.first.getQuestions(),
-      ...tests.last.getQuestions(),
-    ];
-
     return Scaffold(
       appBar: AppBar(
         title: Text('CLTI'),
@@ -54,7 +49,9 @@ class _TestPageState extends State<TestPage> {
               String glass =
                   getRomanNumber(glassResult) ?? tr('configs.indeterminate');
 
-              String res = result != null ? tr("data.results.$result") : tr("data.results.4");
+              String res = result != null
+                  ? tr("data.results.$result")
+                  : tr("data.results.4");
 
               showDialog(
                   context: context,
@@ -197,34 +194,48 @@ class _TestPageState extends State<TestPage> {
       ),
       backgroundColor: Colors.grey.shade300,
       body: Card(
-          child: ListView(children: <Container>[
-        ...questions.map((Question question) {
-          return Container(
-              margin: EdgeInsets.symmetric(horizontal: 1.0, vertical: 15.0),
-              child: Column(
-                children: [
-                  Text(
-                    question.getName(),
-                    style:
-                        TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-                  ),
-                  ...radios(question),
-                  SizedBox(height: 26),
-                  ...question.getLegends().map((Legend legend) {
-                    return Align(
-                        alignment: Alignment.centerLeft,
-                        child: Text.rich(TextSpan(
-                          children: <TextSpan>[
-                            TextSpan(
-                                text: legend.getTitle(),
-                                style: TextStyle(fontWeight: FontWeight.bold)),
-                            TextSpan(text: " : ${legend.getContent()}")
-                          ],
-                        )));
-                  }),
-                ],
-              ));
-        })
+          child: ListView(children: [
+        ...tests.map(
+          (Test test) {
+            return Column(
+              children: [
+                Text(
+                  test.getName(),
+                  style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
+                ),
+                ...test.getQuestions().map((Question question) {
+                  return Container(
+                      margin:
+                          EdgeInsets.symmetric(horizontal: 1.0, vertical: 15.0),
+                      child: Column(
+                        children: [
+                          Text(
+                            question.getName(),
+                            style: TextStyle(
+                                fontSize: 15.0, fontWeight: FontWeight.bold),
+                          ),
+                          ...radios(question),
+                          SizedBox(height: 26),
+                          ...question.getLegends().map((Legend legend) {
+                            return Align(
+                                alignment: Alignment.centerLeft,
+                                child: Text.rich(TextSpan(
+                                  children: <TextSpan>[
+                                    TextSpan(
+                                        text: legend.getTitle(),
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold)),
+                                    TextSpan(text: " : ${legend.getContent()}")
+                                  ],
+                                )));
+                          }),
+                        ],
+                      ));
+                })
+              ],
+            );
+          },
+        ),
       ])),
     );
   }

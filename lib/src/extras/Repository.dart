@@ -91,9 +91,8 @@ class Repository {
     // Tests
 
     List<Test> tests = [
-      new Test('wifi', tr('data.test.glass.questions.ip.name'), wifiQuestions),
-      new Test(
-          'glass', tr('data.test.glass.questions.ip.name'), glassQuestions),
+      new Test('wifi', tr('data.test.wifi.name'), wifiQuestions),
+      new Test('glass', tr('data.test.glass.name'), glassQuestions),
     ];
 
     return tests;
