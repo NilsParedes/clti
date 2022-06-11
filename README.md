@@ -2,6 +2,8 @@
 
 CLTI application.
 
+Available on google play: https://play.google.com/store/apps/details?id=com.nilsparedes.clti&hl=es_PE&gl=US
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
